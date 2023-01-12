@@ -1,12 +1,9 @@
 import React, { FC } from 'react';
 import { Divider, Grid, Button } from '@mui/material';
 import { FcGoogle } from 'react-icons/fc';
+import { AuthKeyPadProps } from '@types-app/components/AuthKeyPad.type';
 
-interface Props {
-  divider: boolean;
-}
-
-export const AuthKeyPad:FC<Props> = ({ divider }) => {
+export const AuthKeyPad:FC<AuthKeyPadProps> = ({ divider = false }) => {
   return (
     <Grid rowSpacing={2}>
       {divider && <Divider sx={{py: '1rem'}}> ó </Divider>}
