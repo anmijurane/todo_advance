@@ -7,7 +7,8 @@
     "start": "webpack serve --config ./config/webpack/config.dev.ts",
     "build": "webpack --config ./config/webpack/config.prod.ts",
     "build:dev": "webpack --config ./config/webpack/config.dev.ts",
-    "test": "jest --config ./config/tests/jest.config.ts"
+    "test": "jest --config ./config/tests/jest.config.ts",
+    "test:watch": "jest --config ./config/tests/jest.config.ts --watch"
   },
   "keywords": [],
   "author": "Miguel Andres Jurado Negrete",
@@ -20,6 +21,7 @@
     "@jest/globals": "^29.3.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
     "@types/axios": "^0.14.0",
     "@types/firebase": "^3.2.1",
     "@types/jest": "^29.2.5",
@@ -49,10 +51,12 @@
     "@mui/material": "^5.11.0",
     "@reduxjs/toolkit": "^1.9.1",
     "firebase": "^9.14.0",
+    "jest-styled-components": "^7.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-redux": "^8.0.5",
-    "react-router-dom": "^6.4.3"
+    "react-router-dom": "^6.4.3",
+    "styled-components": "^5.3.6"
   }
 }
