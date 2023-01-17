@@ -1,12 +1,12 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { Divider, Grid, Button } from '@mui/material';
 import { FcGoogle } from 'react-icons/fc';
 import { AuthKeyPadProps } from '@types-app/components/AuthKeyPad.type';
 
-export const AuthKeyPad:FC<AuthKeyPadProps> = ({ divider = false }) => {
+export const AuthKeyPad:FC<AuthKeyPadProps> = ({ divider = false, onClick }) => {
   return (
     <Grid rowSpacing={2}>
-      {divider && <Divider sx={{py: '1rem'}}> ó </Divider>}
+      {divider && <Divider data-testid='divider' sx={{py: '1rem'}}> ó </Divider>}
       <Button
         fullWidth
         variant='contained'
@@ -18,6 +18,7 @@ export const AuthKeyPad:FC<AuthKeyPadProps> = ({ divider = false }) => {
             color: '#fff'
           }
         }}
+        onClick={onClick}
       > Iniciar Session con Google </Button>
     </Grid>
   );
