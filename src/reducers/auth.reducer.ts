@@ -6,6 +6,7 @@ const InitState:Auth = {
   user: {
     id: '',
     email: '',
+    displayName: '',
     emailVerified: false,
     name: '',
     phoneNumber: '',
@@ -24,7 +25,8 @@ const authSlice = createSlice({
       state.user = action.payload
     },
     logout: (state) => {
-      state = InitState;
+      state.user = InitState.user;
+      state.isLoggin = false;
     }
   }
 });
