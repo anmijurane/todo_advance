@@ -1,47 +1,8 @@
 import React, { useMemo } from 'react';
-import { BrowserRouter, Route, IndexRouteProps, Routes, PathRouteProps } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ProtectorTypeRoute, RoutesType, RecordRoute } from './createRoutes.type'
 
-export type ProtectorTypeRoute =
-  | 'protected'
-  | 'noprotected'
-  | '404-not-found';
-
-export type PathProtected =
-  | ''
-  | '/'
-  | '*'
-  | 'auth'
-  | 'home';
-
-export type PathRoute =
-  | ''
-  | '/'
-  | 'login'
-  | 'register'
-  | 'recover-password';
-
-export interface ProtectedRouteProps {
-  resolve?: () => void;
-};
-
-export interface ProtectedRoute extends IndexRouteProps {
-  component: ({ resolve }: ProtectedRouteProps) => JSX.Element;
-  resolve: () => void;
-  path: PathProtected;
-  index: true;
-};
-
-export type Routes = Array<AnyRoute>;
-
-export interface AnyRoute extends PathRouteProps {
-  component: () => JSX.Element;
-  protectorType: ProtectorTypeRoute;
-  path: PathRoute;
-};
-
-export type RecordRoute = Record<ProtectorTypeRoute, ProtectedRoute>;
-
-export const RenderRoutes = ( protectedR: RecordRoute, routes: Routes ) => {
+export const RenderRoutes = (protectedR: RecordRoute, routes: RoutesType) => {
 
   const renderRoutes = useMemo(() => Object.keys(protectedR).map((routeProtected) => {
     const routeFilterForProtectorType = routes.filter(route => route.protectorType === routeProtected);
@@ -55,7 +16,7 @@ export const RenderRoutes = ( protectedR: RecordRoute, routes: Routes ) => {
     return (
       <Route
         key={routeProtected}
-        element={<ComponentRoute resolve={resolve}/>}
+        element={<ComponentRoute resolve={resolve} />}
         path={path}
         {...restCurrentRoute}
       >
@@ -76,7 +37,7 @@ export const RenderRoutes = ( protectedR: RecordRoute, routes: Routes ) => {
         })}
       </Route>
     );
-  }), [ protectedR, routes ]);
+  }), [protectedR, routes]);
 
   return (
     <BrowserRouter>
@@ -86,3 +47,4 @@ export const RenderRoutes = ( protectedR: RecordRoute, routes: Routes ) => {
     </BrowserRouter>
   )
 }
+
