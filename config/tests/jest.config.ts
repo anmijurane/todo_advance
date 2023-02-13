@@ -5,6 +5,8 @@ const config: Config = {
   testEnvironment: 'jsdom',
   collectCoverageFrom: [
     '<rootDir>/src/**/*.{ts,tsx}',
+    '!<rootDir>/src/Types/**/*.{ts,tsx}',
+    '!**/*.type.{ts,tsx}',
     '!**/node_modules/**',
   ],
   collectCoverage: true,
