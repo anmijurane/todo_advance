@@ -1,8 +1,8 @@
 import React from 'react';
-import { Login, RecoverPassword, Register } from '../../pages/auth';
-import { RecordRoute, Routes } from './CreateRoutes.poc';
-import { LayoutProtected } from './LayoutProtected';
-import { UnprotectedLayout } from './UnprotectedLayout';
+import { Login, RecoverPassword, Register } from '../pages/auth';
+import { RecordRoute, RoutesType } from './CreateRoutes';
+import { LayoutProtected } from './Layouts/LayoutProtected';
+import { UnprotectedLayout } from './Layouts/UnprotectedLayout';
 
 export const protectedRoute: RecordRoute = {
   'protected': {
@@ -25,7 +25,7 @@ export const protectedRoute: RecordRoute = {
   }
 };
 
-export const routes: Routes = [
+export const routes: RoutesType = [
   {
     component: () => <Login />,
     path: 'login',

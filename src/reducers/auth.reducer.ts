@@ -11,6 +11,7 @@ const InitState:Auth = {
     phoneNumber: '',
     surname: '',
     photoURL: '',
+    displayName: '',
   },
   isLoggin: false,
 };
@@ -24,7 +25,8 @@ const authSlice = createSlice({
       state.user = action.payload
     },
     logout: (state) => {
-      state = InitState;
+      state.isLoggin = false;
+      state.user = InitState.user;
     }
   }
 });
