@@ -6,12 +6,12 @@ const InitState:Auth = {
   user: {
     id: '',
     email: '',
+    displayName: '',
     emailVerified: false,
     name: '',
     phoneNumber: '',
     surname: '',
     photoURL: '',
-    displayName: '',
   },
   isLoggin: false,
 };

@@ -64,7 +64,7 @@ export const configCommonWebpack = (env: any, arg: any): Configuration => {
     resolve: {
       extensions: ['.ts', '.js', '.tsx'],
       alias: {
-        '@types-app': `${SRC_DIR}/@types`,
+        '@types-app': `${SRC_DIR}/Types`,
         '@components': `${SRC_DIR}/components`,
       },
     },
